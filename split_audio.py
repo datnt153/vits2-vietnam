@@ -3,7 +3,7 @@ import soundfile  # Optional. Use any library you like to write audio files.
 
 from slicer2 import Slicer
 
-audio, sr = librosa.load('5KK.mp3', mono=False)  # Load an audio file with librosa.
+audio, sr = librosa.load('HN-Ngoc_Lan/24.wav', mono=False)  # Load an audio file with librosa.
 slicer = Slicer(
     sr=sr,
     threshold=-40,
@@ -16,4 +16,4 @@ chunks = slicer.slice(audio)
 for i, chunk in enumerate(chunks):
     if len(chunk.shape) > 1:
         chunk = chunk.T  # Swap axes if the audio is stereo.
-    soundfile.write(f'test/example_{i}.mp3', chunk, sr)  # Save sliced audio files with soundfile.
+    soundfile.write(f'split_Ngoc_Lan/example_{i}.mp3', chunk, sr)  # Save sliced audio files with soundfile.

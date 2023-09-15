@@ -11,9 +11,9 @@ model = WhisperModel(model_size, device="cuda", compute_type="float16")
 # or run on CPU with INT8
 # model = WhisperModel(model_size, device="cpu", compute_type="int8")
 
-segments, info = model.transcribe("audio1.mp3", beam_size=5)
+# segments, info = model.transcribe("audio1.mp3", beam_size=5)
 
-print("Detected language '%s' with probability %f" % (info.language, info.language_probability))
+# print("Detected language '%s' with probability %f" % (info.language, info.language_probability))
 
 # for segment in segments:
 #     print("[%.2fs -> %.2fs] %s" % (segment.start, segment.end, segment.text))
@@ -23,14 +23,14 @@ print("Detected language '%s' with probability %f" % (info.language, info.langua
 #     #     print("[%.2fs -> %.2fs] %s" % (word.start, word.end, word.word))
 
 
-for i in range(len(os.listdir("test"))):
-    segments, info = model.transcribe(f"test/example_{i}.mp3", beam_size=5)
+for i in range(len(os.listdir("split_Ngoc_Lan"))):
+    segments, info = model.transcribe(f"split_Ngoc_Lan/example_{i}.mp3", beam_size=5, without_timestamps=True )
 
     print("Detected language '%s' with probability %f" % (info.language, info.language_probability))
 
     for segment in segments:
         print("[%.2fs -> %.2fs] %s" % (segment.start, segment.end, segment.text))
         with open(f"sub/transcription_{i}.txt", "a", encoding="utf-8") as txt:
-            txt.write("[%.2fs -> %.2fs] %s \n" % (segment.start, segment.end, segment.text))
+            txt.write(f" {segment.text} \n" )
         # for word in segment.words:
         #     print("[%.2fs -> %.2fs] %s" % (word.start, word.end, word.word))

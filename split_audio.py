@@ -20,14 +20,14 @@ def split_file(filename='HN-Ngoc_Lan/24.wav', output_path=""):
     for i, chunk in enumerate(chunks):
         if len(chunk.shape) > 1:
             chunk = chunk.T  # Swap axes if the audio is stereo.
-        soundfile.write(f'{output_path}/example_{i}.mp3', chunk, sr)  # Save sliced audio files with soundfile.
+        soundfile.write(f'{output_path}/split_{i}.mp3', chunk, sr)  # Save sliced audio files with soundfile.
     
 
-number_file = len(os.listdir("HN-Ngoc_Lan"))
+number_file = len(os.listdir("Ngọc huyền"))
 print(f"number file: {number_file}")
 
 
-for i in range(57, 58):
+for i in range(1, number_file + 1):
     print(f"Handle file with index: {i}")
-    filename = f"HN-Ngoc_Lan/{i}.wav"
-    split_file(filename=filename, output_path=f"split_Ngoc_Lan/{i}")
+    filename = f"Ngọc huyền/merge_{i}.wav"
+    split_file(filename=filename, output_path=f"split_Ngoc_Huyen/{i}")

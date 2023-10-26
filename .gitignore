@@ -162,3 +162,12 @@ cython_debug/
 sub/*
 data/*
 test/*
+infore/*
+HN-Ngoc_Lan/*
+split_Ngoc_Lan/*
+sub_Ngoc_Lan/*
+predict/*
+*.wav
+*.mp3
+*.pt
+*.txt

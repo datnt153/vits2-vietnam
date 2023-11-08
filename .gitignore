@@ -160,7 +160,7 @@ cython_debug/
 #.idea/
 
 sub/*
-data/*
+datasets/*
 test/*
 infore/*
 HN-Ngoc_Lan/*
@@ -171,3 +171,6 @@ predict/*
 *.mp3
 *.pt
 *.txt
+*.zip
+*.bin
+models--nguyenvulebinh--wav2vec2-base-vietnamese-250h

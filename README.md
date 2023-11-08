@@ -32,10 +32,32 @@ pip install -r requirements.txt
 
 - pyton Step4_create_label.py
 
+* remember cover audio to mono: python check_type_audio.py
+
 ## Trainning in vits
 
-```python
+
+```bash 
+git clone https://github.com/p0p4k/vits2_pytorch.git 
+
+cd vit2_pytorch
+
+cd monotonic_align
+
+python setup.py build_ext --inplace
+
+cd ..
+```
+
+- add line "_letters  = '0123456789aáảàãạâấẩầẫậăắẳằẵặbcdđeéẻèẽẹêếểềễệfghiíỉìĩịjklmnoóỏòõọôốổồỗộơớởờỡợpqrstuúủùũụưứửừữựvwxyýỷỳỹỵz'" in text/symbols.py 
+
+- add line "logging.getLogger('numba').setLevel(logging.WARNING)" in utils.py (ignore warning numba)
+- copy file vits2_blv_AQ.json into config 
+
+```bash
 python preprocess.py --text_index 1 --filelists filelists/infore_audio_text_train_filelist.txt filelists/infore_audio_text_val_filelist.txt filelists/infore_audio_text_test_filelist.txt --text_cleaners basic_cleaners
+
+python train.py -c config/vits2_blv_AQ -m blv_AQ
 ```
 
 # Credits

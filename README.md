@@ -14,7 +14,7 @@ pip install -r requirements.txt
 # Process data
 
 ## Prepare dataset
-
+- if download from youtube:  yt-dlp -x --audio-format wav --batch-file youtube_links.txt
 - python Step0_merge_input.py (create each file <= 50k character )
 - Upload text to vbee.vn => download
 - python Step1_split_audio.py
